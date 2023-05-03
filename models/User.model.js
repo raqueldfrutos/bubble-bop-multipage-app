@@ -9,6 +9,9 @@ const userSchema = new Schema(
       required: false,
       unique: true
     },
+
+    imageProfile: String,
+
     email: {
       type: String,
       required: true,
@@ -19,10 +22,13 @@ const userSchema = new Schema(
     password: {
       type: String,
       required: true
+    },
+    description: {
+      type: String
     }
   },
   {
-    // this second object adds extra properties: `createdAt` and `updatedAt`    
+    // this second object adds extra properties: `createdAt` and `updatedAt`
     timestamps: true
   }
 );
