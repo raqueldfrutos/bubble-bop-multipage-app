@@ -1,5 +1,5 @@
-const expressPackage = require("express");
-const router = expressPackage.Router();
+const express = require("express");
+const router = express.Router();
 
 /* GET home page */
 router.get("/", (req, res, next) => {
