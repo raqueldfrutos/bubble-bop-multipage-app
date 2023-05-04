@@ -23,9 +23,10 @@ const userSchema = new Schema(
       type: String,
       required: true
     },
-    description: {
-      type: String
-    }
+    description: String,
+    favoriteArtists: [String],
+    playlists: [{ type: Schema.Types.ObjectId, ref: "Playlist" }],
+    concerts: [String]
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`

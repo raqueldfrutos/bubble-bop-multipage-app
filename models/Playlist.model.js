@@ -6,12 +6,9 @@ const playlistSchema = new Schema(
       type: String,
       required: true
     },
-    description: {
-      type: String
-    },
-    tracks: {
-      type: [String]
-    }
+    playlistImage: String,
+    description: String,
+    tracks: [String]
   },
 
   {
@@ -19,5 +16,5 @@ const playlistSchema = new Schema(
   }
 );
 
-const Playlist = model ("Playlist", playlistSchema);
+const Playlist = model("Playlist", playlistSchema);
 module.exports = Playlist;
