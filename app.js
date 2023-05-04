@@ -15,6 +15,10 @@ const hbs = require("hbs");
 
 const app = express();
 
+// ℹ️ This function is getting exported from the config folder. It runs most pieces of middleware
+require("./config")(app);
+require("./config/session.config")(app)
+
 const SpotifyWebApi = require('spotify-web-api-node');
 
 const spotifyApi = new SpotifyWebApi({
@@ -28,18 +32,19 @@ const spotifyApi = new SpotifyWebApi({
     .then(data => spotifyApi.setAccessToken(data.body['access_token']))
     .catch(error => console.log('Something went wrong when retrieving an access token', error));
 
-// ℹ️ This function is getting exported from the config folder. It runs most pieces of middleware
-require("./config")(app);
+
 
 // default value for title local
 const capitalize = require("./utils/capitalize");
 const projectName = "project-2";
 
-app.locals.appTitle = `${capitalize(projectName)} created with IronLauncher`;
+//app.locals.appTitle = `${capitalize(projectName)} created with IronLauncher`;
 
 // 👇 Start handling routes here
 const indexRoutes = require("./routes/index.routes");
 app.use("/", indexRoutes);
+const authRoutes = require("./routes/auth.routes")
+app.use("/auth", authRoutes)
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
