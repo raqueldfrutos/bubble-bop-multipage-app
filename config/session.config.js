@@ -1,4 +1,4 @@
-/*const session = require('express-session');
+const session = require('express-session');
 const MongoStore = require('connect-mongo');
 
 module.exports = app => {
@@ -19,4 +19,4 @@ module.exports = app => {
             })
         })
     );
-};*/
+};
