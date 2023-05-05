@@ -10,3 +10,12 @@ a {
 h1 {
   color: 15px;
 }
+
+.navbar {
+  margin-bottom: 80px;
+}
+
+.navbar form button {
+  background: transparent;
+  border: none;
+}
