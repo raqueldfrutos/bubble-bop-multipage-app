@@ -32,6 +32,10 @@ const spotifyApi = new SpotifyWebApi({
     .then(data => spotifyApi.setAccessToken(data.body['access_token']))
     .catch(error => console.log('Something went wrong when retrieving an access token', error));
 
+    app.get('/', (req, res) => {
+      res.render('index')
+    }) 
+
 
 
 // default value for title local
