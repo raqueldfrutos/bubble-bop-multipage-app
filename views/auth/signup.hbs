@@ -1,15 +1,20 @@
 <form action="/auth/signup" method="POST">
-<div>
+  <div>
     <label for="username">Username:</label>
-    <input required type="text" name="username">
+    <input required type="text" name="username" />
   </div>
   <div>
+    <label for="name">Name:</label>
+    <input required type="text" name="name" />
+  </div>
+
+  <div>
     <label for="email">Email:</label>
-    <input required type="email" name="email">
+    <input required type="email" name="email" />
   </div>
   <div>
     <label for="password">Password:</label>
-    <input required type="password" name="password">
+    <input required type="password" name="password" />
   </div>
   <button type="submit">Sign up</button>
 </form>
