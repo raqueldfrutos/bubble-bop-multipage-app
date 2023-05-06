@@ -18,7 +18,7 @@ router.get("/signup", (req, res, next) => {
 
 router.post("/signup", async (req, res, next) => {
   try {
-    const { username, password, email } = req.body;
+    const { username, password, email,  } = req.body;
 
     if (!username || !email || !password) {
       res.render("auth/signup", {
