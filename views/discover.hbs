@@ -1,0 +1,26 @@
+{{!-- {{#if currentUser}}
+
+<div>
+    <p>Welcome, {{currentUser.name}}</p>
+</div>
+
+{{#else}}
+<p>Welcome to XXX, log in to discover the best music</p>
+<a href="/auth/log-in">Log in</a>
+
+{{/if}} --}}
+
+<div>
+  <h1>Hi there</h1>
+  <p>Search your favorite artists</p>
+
+  <div id="form-container">
+    <form action="/search/artists" method="GET">
+      <div class="form-box">
+        <input type="text" name="search" />
+        <button type="submit"> DISCOVER </button>
+      </div>
+    </form>
+  </div>
+
+</div>
