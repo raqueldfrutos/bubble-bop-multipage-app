@@ -10,6 +10,11 @@ const userSchema = new Schema(
       unique: true
     },
 
+    name: {
+      type: String,
+      required: true,
+    },
+
     imageProfile: String,
 
     email: {
