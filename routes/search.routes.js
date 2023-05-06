@@ -22,9 +22,8 @@ router.get("/artists", (req, res, next) => {
     .searchArtists(search)
     .then(data => {
       console.log("The received data from the API", data.body);
-      //const artistsResults = data.body.artists.items;
-      // console.log(artistsResults[0].images);
-      //res.render("artist-search-results", { artistsResults });
+      const artistsResults = data.body.artists.items;
+      res.render("artists-results", { artistsResults });
     })
     .catch(err => console.log("The error while searching artists occurred: ", err));
 });

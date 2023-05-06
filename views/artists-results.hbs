@@ -1,0 +1,21 @@
+<section>
+
+  <h1> ARTISTS RESULTS</h1>
+
+  {{#each artistsResults}}
+
+    <div class="results-section">
+
+      <img src="{{images.1.url}}" alt="" />
+
+      <div class="artist-card-items">
+        <p class="artist-name"> {{name}}</p>
+        <a href="/albums/{{id}}">View Tracks</a>
+      </div>
+
+    </div>
+
+  {{/each}}
+
+</section>
+
