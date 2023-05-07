@@ -15,7 +15,15 @@ const userSchema = new Schema(
       required: true
     },
 
-    imageProfile: String,
+    lastName: {
+      type: String,
+      required: true
+    },
+
+    imageProfile: {
+      type: String,
+      default: "https://st3.depositphotos.com/1767687/16607/v/600/depositphotos_166074422-stock-illustration-default-avatar-profile-icon-grey.jpg"
+    },
 
     email: {
       type: String,

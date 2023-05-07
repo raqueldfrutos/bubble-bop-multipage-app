@@ -15,9 +15,9 @@ router.get("/signup", (req, res, next) => {
 
 router.post("/signup", async (req, res, next) => {
   try {
-    const { username, password, email, name } = req.body;
+    const { username, password, email, name, lastName } = req.body;
 
-    if (!username || !email || !password || !name) {
+    if (!username || !email || !password || !name || !lastName) {
       res.render("auth/signup", {
         errorMessage: "Por favor rellena todos los campos."
       });
@@ -33,8 +33,8 @@ router.post("/signup", async (req, res, next) => {
     }
     const salt = bcrypt.genSaltSync(saltRounds);
     const hashedPassword = bcrypt.hashSync(password, salt);
-    await User.create({ username, email, name, password: hashedPassword });
-    res.redirect("/");
+    await User.create({ username, email, name, lastName, password: hashedPassword });
+    res.redirect("/auth/login");
   } catch (error) {
     next(error);
   }

@@ -4,13 +4,9 @@ const User = require("./../models/User.model");
 const {isLoggedIn}  = require("../middlewares/route-guard");
 
 
-
-
 router.get("/", isLoggedIn, (req, res, next) => {
-    res.render("profile", { currentUser: req.session.currentUser });
+  const { currentUser } = req.session
+    res.render("profile", { currentUser });
   });
-
-
-
 
 module.exports = router;
