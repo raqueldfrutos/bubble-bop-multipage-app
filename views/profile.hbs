@@ -1,8 +1,9 @@
 
 
-{{#with profile}}
+{{#if currentUser}}
 
-<h1>Profile</h1>
+<h1>{{currentUser.username}}</h1>
 
 
-{{/with}}
+
+{{/if}}

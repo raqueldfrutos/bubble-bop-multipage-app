@@ -1,13 +1,16 @@
 const express = require("express");
 const router = express.Router();
 const User = require("./../models/User.model");
+const {isLoggedIn}  = require("../middlewares/route-guard");
 
-/* GET home page */
-router.get("/", (req, res, next) => {
-  const { id } = req.params;
-  User.findById(id).then(profileInfo => {
-    res.render("profile", { profileInfo });
+
+
+
+router.get("/", isLoggedIn, (req, res, next) => {
+    res.render("profile", { currentUser: req.session.currentUser });
   });
-});
+
+
+
 
 module.exports = router;
