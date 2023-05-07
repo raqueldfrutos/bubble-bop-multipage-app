@@ -2,8 +2,18 @@
 
 {{#if currentUser}}
 
-<h1>{{currentUser.username}}</h1>
+<div class="profile-img">
+    <img src="{{currentUser.imageProfile}}" alt="">
+</div>
+<h4>{{currentUser.name}} {{currentUser.lastName}}</h4>
+<p>@{{currentUser.username}}</p>
 
+<p>{{currentUser.description}}</p>
 
+<h3>{{currentUser.name}}'s favorite artists:</h3>
+
+<h3>{{currentUser.name}}'s playlists:</h3>
+
+<h3>{{currentUser.name}} wants to assist to:</h3>
 
 {{/if}}

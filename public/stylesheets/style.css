@@ -19,3 +19,11 @@ h1 {
   background: transparent;
   border: none;
 }
+
+.profile-img img {
+
+  width: 200px;
+  height: auto;
+  border: solid black 1px;
+
+}
