@@ -12,7 +12,7 @@ const userSchema = new Schema(
 
     name: {
       type: String,
-      required: true,
+      required: true
     },
 
     imageProfile: String,
@@ -29,9 +29,9 @@ const userSchema = new Schema(
       required: true
     },
     description: String,
-    favoriteArtists: [String],
+    favoriteArtists: [Object],
     playlists: [{ type: Schema.Types.ObjectId, ref: "Playlist" }],
-    concerts: [String]
+    concerts: [Object]
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`
