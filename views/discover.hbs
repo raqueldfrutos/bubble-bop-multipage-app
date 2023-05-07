@@ -1,18 +1,8 @@
-{{!-- {{#if currentUser}}
+{{#if currentUser}}
 
 <div>
     <p>Welcome, {{currentUser.name}}</p>
-</div>
-
-{{#else}}
-<p>Welcome to XXX, log in to discover the best music</p>
-<a href="/auth/log-in">Log in</a>
-
-{{/if}} --}}
-
-<div>
-  <h1>Hi there</h1>
-  <p>Search your favorite artists</p>
+    <p>Search your favorite artists</p>
 
   <div id="form-container">
     <form action="/search/artists" method="GET">
@@ -22,5 +12,11 @@
       </div>
     </form>
   </div>
-
 </div>
+
+{{else}}
+<p>Welcome to XXX, log in to discover the best music</p>
+<a href="/auth/login">Log in</a>
+
+{{/if}}
+

@@ -8,9 +8,8 @@ router.get("/", (req, res, next) => {
 
 // Welcome "username" Page
 router.get("/discover", (req, res, next) => {
-  //console.log(req.session);
-  //res.render("discover", { currentUser: req.session.currentUser });
-  res.render("discover")
+  res.render("discover", { currentUser: req.session.currentUser });
+ 
 });
 
 module.exports = router;
