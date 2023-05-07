@@ -1,0 +1,23 @@
+<h1>Edit profile</h1>
+<form action="/profile/edit" method="POST">
+  <div>
+    <label for="username">Username:</label>
+    <input type="text" value="{{username}}" name="username" />
+  </div>
+  <div>
+    <label for="name">Name:</label>
+    <input type="text" value="{{name}}" name="name" />
+  </div>
+
+  <div>
+    <label for="lastName">Last name:</label>
+    <input type="text" value="{{lastName}}" name="lastName" />
+  </div>
+
+  <div>
+    <label for="description">Bio:</label>
+    <textarea type="description" name="description" placeholder="Tell us about yourself">{{description}}</textarea>
+  </div>
+
+  <button type="submit">Save</button>
+</form>
