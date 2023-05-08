@@ -20,9 +20,12 @@ router.get("/edit", isLoggedIn, (req, res, next) => {
 
 router.post("/edit", isLoggedIn, uploader.single("imageProfile"), (req, res, next) => {
   const { currentUser } = req.session;
-  console.log("IMAGE PATH", req.file.path);
-  User.findByIdAndUpdate( currentUser._id, req.body, req.file.path)
-  .then(() => {
+  const data = { ...req.body };
+
+  if (req.file) {
+    data.imageProfile = req.file.path;
+  }
+  User.findByIdAndUpdate(currentUser._id, data).then(() => {
     res.redirect("/profile");
   });
 });

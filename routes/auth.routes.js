@@ -69,6 +69,7 @@ router.post("/login", async (req, res, next) => {
     }
     // console.log(user);
     req.session.currentUser = user;
+    req.app.locals.isLogged = true;
     console.log("CURRENT USER", req.session.currentUser);
     res.redirect("/discover");
   } catch (error) {
