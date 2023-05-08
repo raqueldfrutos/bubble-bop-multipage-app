@@ -16,8 +16,6 @@ const app = express();
 require("./config")(app);
 require("./config/session.config")(app);
 
-//app.locals.appTitle = `${capitalize(projectName)} created with IronLauncher`;
-
 // 👇 Start handling routes here
 const indexRoutes = require("./routes/index.routes");
 app.use("/", indexRoutes);
