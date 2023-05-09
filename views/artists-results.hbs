@@ -10,7 +10,16 @@
 
       <div class="artist-card-items">
         <p class="artist-name"> {{name}}</p>
-         <a href='/search/albums/{{id}}'>View Albums</a>
+        <a href="/search/albums/{{id}}">View Albums</a>
+        <form action="/search/artist/favorite" method="POST">
+          {{! el name tiene que ser igual que los campos del modelo que quiero }}
+          <input hidden type="text" name="name" value="{{name}}" />
+          <input hidden type="text" name="image" value="{{images.1.url}}" />
+          <input hidden type="text" name="search" value="{{../search}}" />
+          <button type="submit">Fav</button>
+
+        </form>
+
       </div>
 
     </div>
@@ -19,8 +28,4 @@
 
 </section>
 
-
-es (11 sloc)  274 Bytes
- 
-
-
+es (11 sloc) 274 Bytes
