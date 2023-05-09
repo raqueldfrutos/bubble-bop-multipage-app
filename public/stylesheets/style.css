@@ -27,3 +27,7 @@ h1 {
   border: solid black 1px;
 
 }
+.favorite-artists {
+  display: flex;
+  gap: 10px;
+}

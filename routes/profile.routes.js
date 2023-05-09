@@ -6,9 +6,11 @@ const { isLoggedIn } = require("../middlewares/route-guard");
 
 router.get("/", isLoggedIn, (req, res, next) => {
   const { currentUser } = req.session;
-  User.findById(currentUser._id).then(user => {
-    res.render("profile/profile", user);
-  });
+  User.findById(currentUser._id)
+    .populate("favoriteArtists")
+    .then(user => {
+      res.render("profile/profile", user);
+    });
 });
 
 router.get("/edit", isLoggedIn, (req, res, next) => {

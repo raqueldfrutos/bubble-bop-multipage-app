@@ -10,6 +10,14 @@
 <hr />
 
 <h3>{{name}}'s favorite artists:</h3>
+<div class="favorite-artists">
+  {{#each favoriteArtists}}
+    <div class="each-artist">
+      <img src="{{image}}" alt="artist image" />
+      <p>{{name}}</p>
+    </div>
+  {{/each}}
+</div>
 
 <h3>{{name}}'s playlists:</h3>
 

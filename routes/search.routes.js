@@ -33,35 +33,36 @@ router.get("/artists", (req, res, next) => {
 router.post("/artist/favorite", (req, res, next) => {
   const { name, image, search } = req.body;
   const { currentUser } = req.session; //objeto deconstruido
-
+  //buscamos artista que se asocie con name
   Artist.findOne({ name })
     .then(artist => {
-      // si el artista no existe en nuestra database lo creamos (esto sirve para no poder añadir mas de una vez al artista como favorito)
+      // si ese artista no existe en nuestra database lo creamos (esto sirve para no poder añadir mas de una vez al artista en la coleccion de artists de la database) y a continuación buscamos al currentUser y actualizamos su campo favArtist haciendo push del id del artista creado
       if (!artist) {
         return Artist.create({ name, image }).then(newArtist => {
           return User.findByIdAndUpdate(currentUser._id, { $push: { favoriteArtists: newArtist._id } });
         });
+        // Si el artista ya existe en basedatos... localizamos User + identificamos que el artista NO exista ya como favorito en su campo de favoriteArtists (de esta manera evitamos que se pueda repetir un mismo artista en dicho array)
       } else {
         return User.findById(currentUser._id)
-          .populate("favoriteArtists")
+          .populate("favoriteArtists") // populando accedemos a todos los campos del modelo de Artist
           .then(user => {
             const artists = user.favoriteArtists;
-
+            // buscamos en el array de favoriteArtists si ya existe uno
             const artistExist = artists.some(eachArtist => {
               if (eachArtist.name === artist.name) {
+                //este artist.name se refiere al encontrado previamente con Artist.findOne
                 return true;
               }
             });
-
             if (artistExist) {
-              return;
+              return; //si el if anterior se cumple devuelve true y con este return lo que hace es parar la app
             } else {
-              return User.findByIdAndUpdate(currentUser._id, { $push: { favoriteArtists: artist._id } });
+              return User.findByIdAndUpdate(currentUser._id, { $push: { favoriteArtists: artist._id } }); // si el if no se cumple, es decir si no existe ya, lo añade
             }
           });
       }
     })
-    .then(() => res.redirect(`/search/artists?search=${search}`))
+    .then(() => res.redirect(`/search/artists?search=${search}`)) // este search corresponde con la palabra que haya utiliado el usuario para hacer la busqueda, es decir a la query que le pasamos a la función en la linea 22
     .catch(error => console.error(error));
 });
 

@@ -15,7 +15,8 @@
           {{! el name tiene que ser igual que los campos del modelo que quiero }}
           <input hidden type="text" name="name" value="{{name}}" />
           <input hidden type="text" name="image" value="{{images.1.url}}" />
-          <input hidden type="text" name="search" value="{{../search}}" />
+          {{!-- utilizamos los dos puntos para salir del objeto artistsResults --}}
+          <input hidden type="text" name="search" value="{{../search}}" /> 
           <button type="submit">Fav</button>
 
         </form>
