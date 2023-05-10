@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Artist = require("./../models/Artist.model");
+const Playlist = require("./../models/Playlist.model");
 
 //SPOTIFY API
 
@@ -20,12 +21,21 @@ spotifyApi
 
 router.get("/artists", (req, res, next) => {
   const { search } = req.query;
+  let artistsResults = undefined;
+  let tracksResults = undefined;
+
   spotifyApi
-    .searchArtists(search)
+    .searchArtists(search, { limit: 1 })
     .then(data => {
-      // console.log("The received data from the API", data.body);
-      const artistsResults = data.body.artists.items;
-      res.render("artists-results", { artistsResults, search });
+      artistsResults = data.body.artists.items;
+
+      return spotifyApi.searchTracks(search);
+    })
+    .then(data => {
+      tracksResults = data.body.tracks.items;
+      console.log("TRACKS", tracksResults);
+      // console.log(artistsResults);
+      res.render("music/artists-results", { artistsResults, tracksResults, search });
     })
     .catch(err => console.log("The error while searching artists occurred: ", err));
 });
@@ -74,7 +84,7 @@ router.get("/albums/:artistId", (req, res) => {
     .then(response => {
       const albumsList = response.body.items;
       // console.log(response);
-      res.render("albums", { albumsList });
+      res.render("music/albums", { albumsList });
     })
     .catch(err => console.log(err));
 });
@@ -86,10 +96,18 @@ router.get("/tracks/:albumId", (req, res) => {
     .getAlbumTracks(albumId)
     .then(response => {
       const tracksList = response.body.items;
+      console.log("CANCIONES", tracksList);
 
-      res.render("tracks", { tracksList });
+      res.render("music/tracks", { tracksList });
     })
     .catch(err => console.log(err));
 });
+
+// router.get("/tracks/add", (req, res) => {
+//   Playlist.find()
+//   .then((dbPlaylists) => {
+
+//   })
+// })
 
 module.exports = router;
