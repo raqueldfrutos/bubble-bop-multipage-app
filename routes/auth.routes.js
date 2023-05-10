@@ -9,9 +9,11 @@ const saltRounds = 10;
 
 //Sign up
 
-router.get("/signup", (req, res, next) => {
+router.get("/signup", isLoggedOut,(req, res, next) => {
   res.render("auth/signup");
 });
+
+
 
 router.post("/signup", async (req, res, next) => {
   try {
@@ -40,7 +42,7 @@ router.post("/signup", async (req, res, next) => {
   }
 });
 
-router.get("/login", (req, res) => {
+router.get("/login",(req, res) => {
   res.render("auth/login");
 });
 
@@ -79,10 +81,27 @@ router.post("/login", async (req, res, next) => {
 
 router.get("/profile", isLoggedIn, (req, res, next) => {
   res.render("auth/profile");
+  console.log(req.session);
 });
 
-/*router.get("/logout", (req, res) => {
-  req.session.destroy(() => res.redirect("/"));
+/*router.get("/logout", isLoggedIn, (req, res) => {
+  req.session.destroy((error) => {
+    if (error){
+      res.status(500).render("index", {errorMessage: error,message})
+    }
+  }, res.redirect("/"));
 });*/
+
+
+
+/*router.get("/logout"), (req,res) => {
+  //req.app.locals.isLogged = false;
+  req.session.destroy (()=> res.redirect ("/"))
+  console.log();
+}*/
+
+router.get('/logout', (req, res, next) => {
+  req.session.destroy (() => res.redirect('/'))
+  });
 
 module.exports = router;
