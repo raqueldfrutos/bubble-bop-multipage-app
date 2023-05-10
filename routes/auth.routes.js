@@ -26,6 +26,14 @@ router.post("/signup", async (req, res, next) => {
       return;
     }
 
+    const regex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
+    if (!regex.test(password)) {
+      return res.render("auth/signup", {
+        errorMessage:
+          "Password needs to have 8 char, including lower/upper case and a digit"
+      });
+    }
+
     const user = await User.findOne({ $or: [{ username }, { email }] });
     if (user) {
       res.render("auth/signup", {
@@ -101,6 +109,7 @@ router.get("/profile", isLoggedIn, (req, res, next) => {
 }*/
 
 router.get('/logout', (req, res, next) => {
+  req.app.locals.isLogged = false;
   req.session.destroy (() => res.redirect('/'))
   });
 
