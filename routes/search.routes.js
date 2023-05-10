@@ -7,6 +7,7 @@ const Playlist = require("./../models/Playlist.model");
 
 const SpotifyWebApi = require("spotify-web-api-node");
 const User = require("../models/User.model");
+const { request } = require("../app");
 
 const spotifyApi = new SpotifyWebApi({
   clientId: process.env.CLIENT_ID,
@@ -19,7 +20,8 @@ spotifyApi
   .then(data => spotifyApi.setAccessToken(data.body["access_token"]))
   .catch(error => console.log("Something went wrong when retrieving an access token", error));
 
-router.get("/artists", (req, res, next) => {
+router.get("/artists", (req, res, next) => {//ruta de los artistas
+  //query mongo a los datos logueados. Hacerlo con map para hacer un array quitando el ya añadido
   const { search } = req.query;
   let artistsResults = undefined;
   let tracksResults = undefined;
@@ -64,8 +66,13 @@ router.post("/artist/favorite", (req, res, next) => {
                 return true;
               }
             });
+            
             if (artistExist) {
-              return; //si el if anterior se cumple devuelve true y con este return lo que hace es parar la app
+              return {
+                //errorMessage: "Este artista ya esta añadido"
+               // alert('Este artista ya esta añadido')
+              }; 
+              //si el if anterior se cumple devuelve true y con este return lo que hace es parar la app
             } else {
               return User.findByIdAndUpdate(currentUser._id, { $push: { favoriteArtists: artist._id } }); // si el if no se cumple, es decir si no existe ya, lo añade
             }
