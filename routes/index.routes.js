@@ -9,7 +9,12 @@ router.get("/", (req, res, next) => {
 // Welcome "username" Page
 router.get("/discover", (req, res, next) => {
   res.render("discover", { currentUser: req.session.currentUser });
- 
-});
+ });
+
+ router.get("/index", (req, res, next) => {
+  res.render("index");
+ });
+
+
 
 module.exports = router;
