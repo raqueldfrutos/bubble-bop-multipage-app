@@ -27,6 +27,20 @@
 
   {{/each}}
 
-</section>
+<hr>
 
-es (11 sloc) 274 Bytes
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Listen</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each tracksResults}}
+      {{> trackCard this}}
+    {{/each}}
+  </tbody>
+</table>
+
+</section>
