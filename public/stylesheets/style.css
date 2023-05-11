@@ -27,7 +27,11 @@ h1 {
   border: solid black 1px;
 
 }
-.favorite-artists {
+.profile-cards {
   display: flex;
   gap: 10px;
+}
+
+.each-playlist img {
+  width: 200px;
 }
