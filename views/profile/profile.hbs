@@ -10,7 +10,7 @@
 <hr />
 
 <h3>{{name}}'s favorite artists:</h3>
-<div class="favorite-artists">
+<div class="profile-cards">
   {{#each favoriteArtists}}
     <div class="each-artist">
       <img src="{{image}}" alt="artist image" />
@@ -19,7 +19,22 @@
   {{/each}}
 </div>
 
+<hr>
+
 <h3>{{name}}'s playlists:</h3>
-<a href="/playlist/create">Create playlist</a>
+<a href="/playlist/create" >Create playlist</a>
+<br/>
+<div class="profile-cards">
+  {{#each playlists}}
+    <div class="each-playlist">
+      <img src="{{playlistImage}}" alt="artist image" />
+      <p>{{name}}</p>
+      <a href="">Listen</a>
+    </div>
+
+  {{/each}}
+</div>
+
+<hr>
 
 <h3>{{name}} wants to assist to:</h3>
