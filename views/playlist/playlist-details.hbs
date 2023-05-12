@@ -1,0 +1,23 @@
+{{#with playlistDetails}}
+
+  <div class="playlist-detail-header">
+
+    <div class="playlist-detail-image">
+      <img src="{{playlistImage}}" alt="Playlist Image" />
+    </div>
+
+    <div class="playlist-detail-info">
+      <h2>{{name}}</h2>
+      <p>{{description}}</p>
+
+      <p>Created by: {{...user.name}} {{...user.lastName}}</p>
+    </div>
+
+  </div>
+
+  <br>
+
+<p>Tracks:</p>
+{{/with}}
+
+<h1></h1>

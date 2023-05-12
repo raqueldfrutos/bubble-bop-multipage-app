@@ -33,4 +33,6 @@ router.post("/edit", isLoggedIn, uploader.single("imageProfile"), (req, res, nex
   });
 });
 
+
+
 module.exports = router;
