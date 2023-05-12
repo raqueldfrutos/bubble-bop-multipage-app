@@ -17,13 +17,25 @@ router.post("/create", isLoggedIn, uploader.single("playlistImage"), (req, res, 
   }
   Playlist.create(data)
     .then(playlist => {
-      console.log(playlist);
+      //console.log(playlist);
       return User.findByIdAndUpdate(currentUser._id, { $push: { playlists: playlist._id } }); // con este return indicamos al primer then que tiene que esperar a que se resuelva la promesa del user antes de continuar con el siguiente then
     })
     .then(() => {
       res.redirect("/profile");
     })
     .catch(error => console.error(error));
+});
+
+router.get("/:id", isLoggedIn, (req, res, next) => {
+  const { id } = req.params;
+  const { currentUser } = req.session;
+
+  User.findById(currentUser._id).then(user => {
+    return Playlist.findById(id)
+    .then(playlistDetails => {
+      res.render("playlist/playlist-details", { playlistDetails, user });
+    });
+  });
 });
 
 module.exports = router;

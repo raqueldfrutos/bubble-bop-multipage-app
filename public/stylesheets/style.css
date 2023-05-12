@@ -35,3 +35,11 @@ h1 {
 .each-playlist img {
   width: 200px;
 }
+
+.playlist-detail-header {
+  display: flex;
+}
+
+.playlist-detail-image img {
+  width: 200px;
+}
