@@ -92,6 +92,10 @@ router.get("/profile", isLoggedIn, (req, res, next) => {
   console.log(req.session);
 });
 
+router.get("/trendingmusic", isLoggedIn, (req, res, next) =>{
+  res.render("trendingmusic");
+});
+
 /*router.get("/logout", isLoggedIn, (req, res) => {
   req.session.destroy((error) => {
     if (error){
