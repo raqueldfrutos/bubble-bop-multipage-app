@@ -13,7 +13,6 @@ router.post("/create", isLoggedIn, uploader.single("playlistImage"), (req, res, 
   }
   Playlist.create(data)
     .then(playlist => {
-      //console.log(playlist);
       return User.findByIdAndUpdate(currentUser._id, { $push: { playlists: playlist._id } }); // con este return indicamos al primer then que tiene que esperar a que se resuelva la promesa del user antes de continuar con el siguiente then
     })
     .then(() => {

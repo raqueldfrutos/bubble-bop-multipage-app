@@ -77,10 +77,9 @@ router.post("/login", async (req, res, next) => {
       });
       return;
     }
-    // console.log(user);
+  
     req.session.currentUser = user;
     req.app.locals.isLogged = true;
-    console.log("CURRENT USER", req.session.currentUser);
     res.redirect("/discover");
   } catch (error) {
     next(error);
@@ -89,7 +88,6 @@ router.post("/login", async (req, res, next) => {
 
 router.get("/profile", isLoggedIn, (req, res, next) => {
   res.render("auth/profile");
-  console.log(req.session);
 });
 
 router.get("/trendingmusic", isLoggedIn, (req, res, next) =>{

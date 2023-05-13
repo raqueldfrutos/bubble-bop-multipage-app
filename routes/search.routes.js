@@ -19,7 +19,7 @@ const spotifyApi = new SpotifyWebApi({
 spotifyApi
   .clientCredentialsGrant()
   .then(data => spotifyApi.setAccessToken(data.body["access_token"]))
-  .catch(error => console.log("Something went wrong when retrieving an access token", error));
+  .catch(error => console.error("Something went wrong when retrieving an access token", error));
 
 router.get("/artists", (req, res, next) => {
   //ruta de los artistas
@@ -30,28 +30,17 @@ router.get("/artists", (req, res, next) => {
 
   spotifyApi
     .searchArtists(search, { limit: 1 })
-    .getTopTracks ( '0oSGxfWSnnOXhD2fKuz2Gy' ,  'GB' )
     .then(data => {
       artistsResults = data.body.artists.items;
 
       return spotifyApi.searchTracks(search);
     })
 
-
-    /*spotifyApi . getArtistTopTracks ( '0oSGxfWSnnOXhD2fKuz2Gy' ,  'GB' ) 
-    . luego ( función ( datos )  { 
-      consola . log ( datos . cuerpo ) ; 
-      } ,  función ( err )  { 
-      consola . log ( '¡Algo salió mal!' ,  err ) ; 
-    } ) ;*/
-
     .then(data => {
       tracksResults = data.body.tracks.items;
-      console.log("TRACKS", tracksResults);
-      // console.log(artistsResults);
       res.render("music/artists-results", { artistsResults, tracksResults, search });
     })
-    .catch(err => console.log("The error while searching artists occurred: ", err));
+    .catch(err => console.error("The error while searching artists occurred: ", err));
 });
 
 router.post("/artist/favorite", isLoggedIn, (req, res, next) => {
@@ -97,15 +86,13 @@ router.post("/artist/favorite", isLoggedIn, (req, res, next) => {
 
 router.get("/albums/:artistId", isLoggedIn, (req, res) => {
   const { artistId } = req.params;
-  //console.log(artistId);
   spotifyApi
     .getArtistAlbums(artistId)
     .then(response => {
       const albumsList = response.body.items;
-      // console.log(response);
       res.render("music/albums", { albumsList });
     })
-    .catch(err => console.log(err));
+    .catch(err => console.error(err));
 });
 
 router.get("/tracks/:albumId", isLoggedIn, (req, res) => {
@@ -115,11 +102,10 @@ router.get("/tracks/:albumId", isLoggedIn, (req, res) => {
     .getAlbumTracks(albumId)
     .then(response => {
       const tracksList = response.body.items;
-      console.log("CANCIONES", tracksList);
 
       res.render("music/tracks", { tracksList });
     })
-    .catch(err => console.log(err));
+    .catch(err => console.error(err));
 });
 
 // router.get("/tracks/add", (req, res) => {
