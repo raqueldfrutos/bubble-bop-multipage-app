@@ -21,7 +21,7 @@ spotifyApi
   .then(data => spotifyApi.setAccessToken(data.body["access_token"]))
   .catch(error => console.error("Something went wrong when retrieving an access token", error));
 
-router.get("/artists", (req, res, next) => {
+router.get("/artists", isLoggedIn, (req, res, next) => {
   //ruta de los artistas
   //query mongo a los datos logueados. Hacerlo con map para hacer un array quitando el ya añadido
   const { search } = req.query;
