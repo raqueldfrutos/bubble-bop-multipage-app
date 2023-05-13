@@ -8,6 +8,7 @@ router.get("/", isLoggedIn, (req, res, next) => {
   const { currentUser } = req.session;
   User.findById(currentUser._id)
     .populate("favoriteArtists")
+    .populate("playlists")
     .then(user => {
       res.render("profile/profile", user);
     });
@@ -31,5 +32,7 @@ router.post("/edit", isLoggedIn, uploader.single("imageProfile"), (req, res, nex
     res.redirect("/profile");
   });
 });
+
+
 
 module.exports = router;

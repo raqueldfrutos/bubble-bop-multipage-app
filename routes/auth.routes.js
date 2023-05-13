@@ -95,23 +95,6 @@ router.get("/profile", isLoggedIn, (req, res, next) => {
 router.get("/trendingmusic", isLoggedIn, (req, res, next) =>{
   res.render("trendingmusic");
 });
-
-/*router.get("/logout", isLoggedIn, (req, res) => {
-  req.session.destroy((error) => {
-    if (error){
-      res.status(500).render("index", {errorMessage: error,message})
-    }
-  }, res.redirect("/"));
-});*/
-
-
-
-/*router.get("/logout"), (req,res) => {
-  //req.app.locals.isLogged = false;
-  req.session.destroy (()=> res.redirect ("/"))
-  console.log();
-}*/
-
 router.get('/logout', (req, res, next) => {
   req.app.locals.isLogged = false;
   req.session.destroy (() => res.redirect('/'))

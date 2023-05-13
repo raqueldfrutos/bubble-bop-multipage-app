@@ -1,9 +1,13 @@
 <h2>Create playlist</h2>
 
-<form action="/playlist/create" method="POST">
+<form action="/playlist/create" method="POST" enctype="multipart/form-data">
+<div>
+    <label for="playlistImage">Profile picture</label>
+    <input type="file" id="playlistImage" name="playlistImage" />
+  </div>
   <div>
     <label for="name">Name: </label>
-    <input type="text" name="name" />
+    <input required type="text" name="name" />
   </div>
 
   <div>
@@ -14,3 +18,7 @@
   <button type="submit">Create playlist</button>
 
 </form>
+
+{{#if errorMessage}}
+  <p class="error-message">{{errorMessage}}</p>
+{{/if}}
