@@ -19,11 +19,50 @@
   {{/each}}
 </div>
 
-<hr>
+<hr />
 
 <h3>{{name}}'s playlists:</h3>
-<a href="/playlist/create" >Create playlist</a>
-<br/>
+{{! <a href="/playlist/create" >Create playlist</a> }}
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Create playlist
+</button>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">New playlist</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form action="/playlist/create" method="POST" enctype="multipart/form-data">
+        <div class="modal-body">
+
+          <div>
+            <label for="playlistImage">Playlist Image</label>
+            <input type="file" id="playlistImage" name="playlistImage" />
+          </div>
+          <div>
+            <label for="name">Title: </label>
+            <input required id="playlist-title" type="text" name="name" />
+          </div>
+
+          <div>
+            <label for="description">Description</label>
+            <textarea type="description" name="description" placeholder="Add an optional description"></textarea>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button disabled type="submit" id="modal-button" class="btn btn-primary" data-bs-dismiss="modal">Create
+            playlist</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+
+<br />
 <div class="profile-cards">
   {{#each playlists}}
     <div class="each-playlist">
@@ -35,6 +74,8 @@
   {{/each}}
 </div>
 
-<hr>
+<hr />
 
 <h3>{{name}} wants to assist to:</h3>
+
+<script src="/js/modalValidation.js"></script>
