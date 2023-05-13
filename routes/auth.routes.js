@@ -90,9 +90,6 @@ router.get("/profile", isLoggedIn, (req, res, next) => {
   res.render("auth/profile");
 });
 
-router.get("/trendingmusic", isLoggedIn, (req, res, next) =>{
-  res.render("trendingmusic");
-});
 router.get('/logout', (req, res, next) => {
   req.app.locals.isLogged = false;
   req.session.destroy (() => res.redirect('/'))
