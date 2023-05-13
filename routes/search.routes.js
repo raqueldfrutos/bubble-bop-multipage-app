@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Artist = require("./../models/Artist.model");
 const Playlist = require("./../models/Playlist.model");
+const { isLoggedIn } = require("../middlewares/route-guard");
 
 //SPOTIFY API
 
@@ -29,11 +30,21 @@ router.get("/artists", (req, res, next) => {
 
   spotifyApi
     .searchArtists(search, { limit: 1 })
+    .getTopTracks ( '0oSGxfWSnnOXhD2fKuz2Gy' ,  'GB' )
     .then(data => {
       artistsResults = data.body.artists.items;
 
       return spotifyApi.searchTracks(search);
     })
+
+
+    /*spotifyApi . getArtistTopTracks ( '0oSGxfWSnnOXhD2fKuz2Gy' ,  'GB' ) 
+    . luego ( función ( datos )  { 
+      consola . log ( datos . cuerpo ) ; 
+      } ,  función ( err )  { 
+      consola . log ( '¡Algo salió mal!' ,  err ) ; 
+    } ) ;*/
+
     .then(data => {
       tracksResults = data.body.tracks.items;
       console.log("TRACKS", tracksResults);
@@ -43,7 +54,7 @@ router.get("/artists", (req, res, next) => {
     .catch(err => console.log("The error while searching artists occurred: ", err));
 });
 
-router.post("/artist/favorite", (req, res, next) => {
+router.post("/artist/favorite", isLoggedIn, (req, res, next) => {
   const { name, image, search } = req.body;
   const { currentUser } = req.session; //objeto deconstruido
   //buscamos artista que se asocie con name
@@ -84,7 +95,7 @@ router.post("/artist/favorite", (req, res, next) => {
     .catch(error => console.error(error));
 });
 
-router.get("/albums/:artistId", (req, res) => {
+router.get("/albums/:artistId", isLoggedIn, (req, res) => {
   const { artistId } = req.params;
   //console.log(artistId);
   spotifyApi
@@ -97,7 +108,7 @@ router.get("/albums/:artistId", (req, res) => {
     .catch(err => console.log(err));
 });
 
-router.get("/tracks/:albumId", (req, res) => {
+router.get("/tracks/:albumId", isLoggedIn, (req, res) => {
   const { albumId } = req.params;
 
   spotifyApi
