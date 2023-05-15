@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const { isLoggedIn } = require("../middlewares/route-guard");
 
 // Index Page
 router.get("/", (req, res, next) => {
@@ -7,7 +8,7 @@ router.get("/", (req, res, next) => {
 });
 
 // Welcome "username" Page
-router.get("/discover", (req, res, next) => {
+router.get("/discover", isLoggedIn, (req, res, next) => {
   res.render("discover", { currentUser: req.session.currentUser });
  });
 
