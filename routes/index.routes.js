@@ -12,10 +12,6 @@ router.get("/discover", isLoggedIn, (req, res, next) => {
   res.render("discover", { currentUser: req.session.currentUser });
  });
 
- router.get("/trendingmusic", (req, res, next) => {
-  res.render("trendingmusic", { currentUser: req.session.currentUser });
- });
-
 
 module.exports = router;
 
