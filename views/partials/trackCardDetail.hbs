@@ -1,0 +1,14 @@
+<tr>
+  <td>
+    <p>{{track.name}}</p>
+  </td>
+  <td>
+    <audio controls src="{{track.preview_url}}"></audio>
+  </td>
+  <td>
+    <form action="/playlist/{{_id}}/delete-track">
+      <input hidden type="text" name="track" value="{{track}}" />
+      <button type="submit">Delete</button>
+    </form>
+  </td>
+</tr>

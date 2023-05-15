@@ -80,7 +80,7 @@ router.post("/login", async (req, res, next) => {
   
     req.session.currentUser = user;
     req.app.locals.isLogged = true;
-    res.redirect("/discover");
+    res.redirect("/profile");
   } catch (error) {
     next(error);
   }

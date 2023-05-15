@@ -23,23 +23,26 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
+         <li class="nav-item">
+              <form action="/search/artists" method="GET">
+                  <input type="text" name="search" />
+                  <button type="submit"> DISCOVER </button>
+              </form>
+         </li>
+        {{!-- <li class="nav-item">
           <a class="nav-link" href="/discover">Discover</a>
-        </li>
+        </li> --}}
         <li class="nav-item">
           <a class="nav-link" href="">Music Events</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/profile">Profile</a>
         </li>
-          <li class="nav-item">
-            {{!-- <form action="/auth/logout" method="POST">
-              <button class="nav-link" type="submit">Logout</button>
-            </form>
-            <form action="/auth/logout" method="POST">
-               <button class="nav-link">Logout</button> --}}
+        
+         
+
+           <li class="nav-item">
                <a class="nav-link" href="/auth/logout">Logout</a>
-            {{!-- </form> --}}
          </li>
     </div>
   </div>

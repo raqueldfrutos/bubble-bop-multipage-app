@@ -18,6 +18,27 @@
   <br>
 
 <p>Tracks:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Listen</th>
+    </tr>
+  </thead>
+  <tbody>
+{{#each tracks}}
+{{> trackCardDetail track=this playlists=../playlists}}
+{{/each}}
+
+  </tbody>
+</table>
+
+
+
+
+
+
 {{/with}}
 
 <h1></h1>

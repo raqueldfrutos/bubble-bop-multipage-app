@@ -7,6 +7,8 @@ const { isLoggedIn } = require("../middlewares/route-guard");
 
 
 
+
+
 router.post("/create", isLoggedIn, uploader.single("playlistImage"), (req, res, next) => {
   const data = { ...req.body };
   const { currentUser } = req.session;
@@ -34,5 +36,16 @@ router.get("/:id", isLoggedIn, (req, res, next) => {
     });
   });
 });
+
+router.post(":id/delete-track", isLoggedIn, (req, res, next) => {
+const { id } = req.params;
+const { track } = req.body
+Playlist.findByIdAndUpdate(id, { $pull: { tracks: track }})
+.then(() => {
+res.redirect(`/playlist/${_id}`)
+})
+})
+
+
 
 module.exports = router;
