@@ -1,11 +1,36 @@
 <tr>
   <td>
-    <p>{{name}}</p>
+    <p>{{track.name}}</p>
   </td>
   <td>
-    <audio controls src="{{preview_url}}"></audio>
+    <audio controls src="{{track.preview_url}}"></audio>
   </td>
+
   <td>
-    <a href=""> Add to playlist</a>
+    {{!-- <p>{{name}}</p> --}}
+    <div class="btn-group">
+      <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        Add to playlist
+      </button>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">Create playlist</a></li>
+        <li><hr class="dropdown-divider" /></li>
+        {{#each playlists}}
+          <li>
+            <form action="/search/add-track/{{_id}}" method="post">
+            <input hidden type="text" name="name" value="{{../track.name}}">
+            <input hidden type="text" name="preview_url"value="{{../track.preview_url}}">
+            {{#if ../search}}
+              <input hidden type="text" name="search"value="{{../search}}">
+            {{else}}
+            <input hidden type="text" name="albumId" value="{{../albumId}}">
+            {{/if}}
+            <button class="dropdown-item">{{name}}</button>
+            </form>
+          </li>
+        {{/each}}
+      </ul>
+    </div>
   </td>
+
 </tr>

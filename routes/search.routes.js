@@ -40,11 +40,14 @@ router.get("/artists", isLoggedIn, (req, res, next) => {
 
     .then((data) => {
       tracksResults = data.body.tracks.items;
-      res.render("music/artists-results", {
-        artistsResults,
-        tracksResults,
-        search,
-      });
+
+
+      return User.findById(req.session.currentUser._id).populate("playlists");
+    })
+    .then(user => {
+      userPlaylists = user.playlists;
+      console.log(userPlaylists);
+      res.render("music/artists-results", { artistsResults, tracksResults, search, playlists: userPlaylists });
     })
     .catch((err) =>
       console.error("The error while searching artists occurred: ", err)
@@ -94,6 +97,21 @@ router.post("/artist/favorite", isLoggedIn, (req, res, next) => {
     .catch((error) => console.error(error));
 });
 
+router.post("/add-track/:id", isLoggedIn, (req, res, next) => {
+  const { id } = req.params;
+  const { name, preview_url, search, albumId } = req.body;
+
+  Playlist.findByIdAndUpdate(id, { $push: { tracks: { name, preview_url } } })
+    .then(() => {
+      if (search) {
+        res.redirect(`/search/artists?search=${search}`);
+      } else {
+        res.redirect(`/search/tracks/${albumId}`);
+      }
+    })
+    .catch(err => console.error(err));
+});
+
 router.post("/artist/:id/delete",  isLoggedIn, async (req, res, next) => {
   const { currentUser } = req.session;
   const { id } = req.params;
@@ -117,13 +135,18 @@ router.get("/albums/:artistId", isLoggedIn, (req, res) => {
 
 router.get("/tracks/:albumId", isLoggedIn, (req, res) => {
   const { albumId } = req.params;
-
+  const { currentUser } = req.session;
+  let tracksList = undefined;
   spotifyApi
     .getAlbumTracks(albumId)
-    .then((response) => {
-      const tracksList = response.body.items;
 
-      res.render("music/tracks", { tracksList });
+    .then(response => {
+      tracksList = response.body.items;
+      return User.findById(currentUser).populate("playlists");
+    })
+    .then(user => {
+      const playlists = user.playlists;
+      res.render("music/tracks", { tracksList, albumId, playlists });
     })
     .catch((err) => console.error(err));
 });
