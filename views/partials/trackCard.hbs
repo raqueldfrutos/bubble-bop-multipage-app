@@ -12,7 +12,11 @@
         Add to playlist
       </button>
       <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="/playlist/create">Create playlist</a></li>
+
+        <li><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Create playlist
+          </button></li>
+
         <li><hr class="dropdown-divider" /></li>
         {{#each playlists}}
           <li>
@@ -33,3 +37,53 @@
   </td>
 
 </tr>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">New playlist</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form action="/playlist/create" method="POST" enctype="multipart/form-data">
+        <div class="modal-body">
+
+          <div>
+            <input hidden type="text" name="search" value="{{search}}"/>
+          </div>
+
+          <div>
+            <input hidden type="text" name="trackName" value="{{track.name}}"/>
+          </div>
+
+          <div>
+            <input hidden type="text" name="trackUrl" value="{{track.preview_url}}"/>
+          </div>
+          
+          <div>
+            <label for="playlistImage">Playlist Image</label>
+            <input type="file" id="playlistImage" name="playlistImage" />
+          </div>
+          <div>
+            <label for="name">Title: </label>
+            <input required id="playlist-title" type="text" name="name" />
+          </div>
+
+          <div>
+            <label for="description">Description</label>
+            <textarea type="description" name="description" placeholder="Add an optional description"></textarea>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button disabled type="submit" id="modal-button" class="btn btn-primary" data-bs-dismiss="modal">Create
+            playlist</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<script src="/js/modalValidation.js"></script>

@@ -76,7 +76,7 @@ router.post("/artist/favorite", isLoggedIn, (req, res, next) => {
             });
 
             if (artistExist) {
-              res.render("search/artists", {
+              res.render("music/artists-results", {
                 errorMessage: "Ya has añadido este artista como favorito"
               });
               return;
