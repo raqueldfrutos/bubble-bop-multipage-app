@@ -50,4 +50,12 @@ router.post("/:id/delete-track", isLoggedIn, (req, res, next) => {
   });
 });
 
+router.post("/:id/delete", isLoggedIn, async (req, res, next) => {
+  const { id } = req.params;
+  await Playlist.findByIdAndRemove( id );
+  res.redirect("/profile");
+});
+
+
+
 module.exports = router;
