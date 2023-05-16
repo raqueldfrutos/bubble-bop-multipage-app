@@ -11,6 +11,7 @@
       <p>{{description}}</p>
 
       <p>Created by: {{...user.name}} {{...user.lastName}}</p>
+       <form action="/playlist/{{_id}}/delete" method="POST"><button type="submit" class="btn btn-primary" data-toggle="button">Delete</button></form>
     </div>
 
   </div>
