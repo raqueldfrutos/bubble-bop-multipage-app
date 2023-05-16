@@ -37,6 +37,13 @@ router.get("/:id", isLoggedIn, (req, res, next) => {
   });
 });
 
+router.post("/:id/delete", isLoggedIn, async (req, res, next) => {
+  const { id } = req.params;
+
+  await Playlist.findByIdAndRemove( id );
+  res.redirect("/profile");
+});
+
 router.post(":id/delete-track", isLoggedIn, (req, res, next) => {
 const { id } = req.params;
 const { track } = req.body

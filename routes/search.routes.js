@@ -134,6 +134,8 @@ router.post("/artist/:id/delete", isLoggedIn, async (req, res, next) => {
   res.redirect("/profile");
 });
 
+
+
 router.get("/albums/:artistId", isLoggedIn, (req, res) => {
   const { artistId } = req.params;
   spotifyApi
