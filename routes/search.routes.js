@@ -19,7 +19,8 @@ const spotifyApi = new SpotifyWebApi({
 spotifyApi
   .clientCredentialsGrant()
   .then(data => spotifyApi.setAccessToken(data.body["access_token"]))
-  .catch(error => console.error("Something went wrong when retrieving an access token", error));
+  .catch(error => console.error("Something went wrong when retrieving an access token", error))
+ 
 
 router.get("/artists", isLoggedIn, (req, res, next) => {
   //ruta de los artistas

@@ -1,0 +1,19 @@
+{{!-- {{#if currentUser}} --}}
+
+<div>
+    <h1>Trending playlist Artist</h1>
+   {{!-- {{#each tracks}}
+ {{> trackCard track=this}}
+{{/each}} --}}
+
+  {{#each tracks}}
+     <p>{{track.name}}</p>
+    <audio controls src="{{track.preview_url}}"></audio>
+{{/each}}
+</div>
+
+
+{{!-- {{/if}} --}}
+
+
+
