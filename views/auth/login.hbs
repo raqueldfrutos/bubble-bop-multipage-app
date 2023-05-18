@@ -1,16 +1,59 @@
-<form action="/auth/login" method="POST">
-  <div>
-    <label for="email">Email:</label>
-    <input required type="email" name="email">
-  </div>
-  <div>
-    <label for="password">Password:</label>
-    <input required type="password" name="password">
-  </div>
-  <button type="submit">Login</button>
-</form>
+<div class="blocks-container">
 
-<a href="/">Inicio</a>
-{{#if errorMessage}}
-  <p class="error-message">{{errorMessage}}</p>
-{{/if}}
+    <div class="left-block">
+
+      <div class="auth-form">
+
+          <div class="form-section">
+          <h1>Log <span>In!</span></h1>
+          </div>
+
+          <form action="/auth/login" method="POST">
+            <div class="form-section">
+                <label for="email">Email:</label>
+                <div>
+                  <input class="text-input auth-input" placeholder="Introduce your email" required type="email" name="email">
+                </div>
+            </div>
+            <div class="form-section">
+                <label for="password">Password:</label>
+                <div>
+                    <input  class="text-input auth-input" placeholder="Password" required type="password" name="password">
+                </div>
+            </div>
+             {{#if errorMessage}}
+              <p class="error-message">{{errorMessage}}</p>
+              {{/if}} 
+             <div class="form-section"> 
+                  <button class="big-button auth-button" type="submit">Log in</button>
+             </div>
+        </form>
+       
+
+      </div>
+      <div class="footer-auth-form">
+
+            <a href="/">Go back</a>
+            <p>¿Don't have an account?<a href="/auth/signup">Sign up</a></p>
+      </div>
+      
+    </div>
+
+
+    <div class="right-block">
+
+    <img class="auths-images" src="/images/ilustration-auth.png" alt="" />
+    <img class="bubble-image" src="/images/ilustration-bubble.png" alt="" />
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
