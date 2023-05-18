@@ -1,81 +1,121 @@
-<div class="profile-img">
-  <img src="{{imageProfile}}" alt="" />
-</div>
-<h4>{{name}} {{lastName}}</h4>
-<p>@{{username}}</p>
+<div id="main-container">
 
-<p>{{description}}</p>
-<a href="/profile/edit">Edit</a>
+  <section>
 
-<hr />
+    <div id="user-info">
 
-<h3>{{name}}'s favorite artists:</h3>
-<div class="profile-cards">
-  {{#each favoriteArtists}}
-    <div class="each-artist">
-      <img src="{{image}}" alt="artist image" />
-      <p>{{name}}</p>
-      <form action="/search/artist/{{_id}}/delete" method="POST"><button type="submit" class="btn btn-primary" data-toggle="button">Delete</button></form>
-    </div>
-  {{/each}}
-</div>
-
-<hr />
-
-<h3>{{name}}'s playlists:</h3>
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Create playlist
-</button>
-
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">New playlist</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      <div class="user-info-left">
+        <div class="profile-img default-size circle-img">
+        <div id="watermark"> </div>
+          <img src="{{imageProfile}}" alt="" />
+        </div>
+        <a class="small-button" href="/profile/edit">Edit profile</a>
       </div>
-      <form action="/playlist/create" method="POST" enctype="multipart/form-data">
-        <div class="modal-body">
 
-          <div>
-            <label for="playlistImage">Playlist Image</label>
-            <input type="file" id="playlistImage" name="playlistImage" />
-          </div>
-          <div>
-            <label for="name">Title: </label>
-            <input required id="playlist-title" type="text" name="name" />
+      <div class="user-info-right">
+
+        <h1>Hello <span>{{name}}!</span></h1>
+        <p>@{{username}}</p>
+        <p>{{description}}</p>
+      
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+    <div class="titles">
+      <h2>{{name}}'s <span>favorite artists: </span></h2>
+    </div>
+
+    <div class="profile-cards">
+      {{#each favoriteArtists}}
+        <div class="each-artist">
+          
+          <div class="default-size circle-img circle-border">
+          <img src="{{image}}" alt="artist image" />
           </div>
 
-          <div>
-            <label for="description">Description</label>
-            <textarea type="description" name="description" placeholder="Add an optional description"></textarea>
+          <div class="artist-footer">
+          <p>{{name}}</p>
+          <form action="/search/artist/{{_id}}/delete" method="POST"><button class="small-button"
+              type="submit"
+              class="btn btn-primary"
+              data-toggle="button">Delete</button></form>
           </div>
-
         </div>
-        <div class="modal-footer">
-          <button disabled type="submit" id="modal-button" class="btn btn-primary" data-bs-dismiss="modal">Create
-            playlist</button>
-        </div>
+      {{/each}}
+    </div>
+  </section>
 
-      </form>
+<section>
+  <div class="titles">
+    <h2>{{name}}'s <span> playlists: </span></h2>
+  </div>
+
+ 
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">New playlist</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form action="/playlist/create" method="POST" enctype="multipart/form-data">
+          <div class="modal-body">
+
+            <div>
+              <label for="playlistImage">Playlist Image</label>
+              <input type="file" id="playlistImage" name="playlistImage" />
+            </div>
+            <div>
+              <label for="name">Title: </label>
+              <input required id="playlist-title" type="text" name="name" />
+            </div>
+
+            <div>
+              <label for="description">Description</label>
+              <textarea type="description" name="description" placeholder="Add an optional description"></textarea>
+            </div>
+
+          </div>
+          <div class="modal-footer">
+            <button disabled type="submit" id="modal-button" class="btn btn-primary" data-bs-dismiss="modal">Create
+              playlist</button>
+          </div>
+
+        </form>
+      </div>
     </div>
   </div>
+
+  <br />
+  
+  <div class="profile-cards">
+    {{#each playlists}}
+      <div class="playlist-card">
+          <div class="playlist-card-img">
+            <img src="{{playlistImage}}" alt="artist image" />
+          </div>
+          <div class="playlist-card-footer">
+            <p>{{name}}</p>
+            <p>{{description}}</p>
+            <a href="/playlist/{{_id}}">Listen</a>
+          </div>
+      </div>
+
+    {{/each}}
+  </div>
+
+ <button type="button"  class="btn btn-primary small-button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Create a new playlist
+  </button>
+
+</section>
+
+  <script src="/js/modalValidation.js"></script>
+
 </div>
-
-<br />
-<div class="profile-cards">
-  {{#each playlists}}
-    <div class="each-playlist">
-      <img src="{{playlistImage}}" alt="artist image" />
-      <p>{{name}}</p>
-      <a href="/playlist/{{_id}}">Listen</a>
-    </div>
-
-  {{/each}}
-</div>
-
-<hr />
-
-<h3>{{name}} wants to assist to:</h3>
-
-<script src="/js/modalValidation.js"></script>
