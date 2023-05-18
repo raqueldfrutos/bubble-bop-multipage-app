@@ -3,9 +3,9 @@
 <p>Raquel de Frutos Álvarez</p>
 <p>Daniel Salas Rodríguez</p>
 <h2>How it looks</h2>
-<img src="images/inicio.png">
-<img src="images/login.png">
-<img src="images/singup.png">
+![Screen view 1](./Images/inicio.png)
+![Screen view 1](./Images/login.png.png)
+![Screen view 1](./Images/singup.png.png)
 <h2>Descripcion</h2>
 <p>Online page designed to search for artists, albums
  or songs to be able to add them to your playlist</p>
@@ -15,5 +15,17 @@
  <li>HTML / CSS / JavaScript / Bootstrap</li>
  <li>npm / MongoDB / NodeJS / ExpressJS</li>
  <li>Cloudinary/SpotifyApi</li>
+ </ul>
+ </p>
+  <h2>User Stories</h2>
+ <p>
+ <ul>
+ <li><b>404</b>As users, we want to see a nice 404 error page when I go to a page that doesn’t exis</li>
+ <li><b></b></li>
+ <li><b></b></li>
+ <li><b></b></li>
+ <li><b></b></li>
+ <li><b></b></li>
+ <li><b></b></li>
  </ul>
  </p>
