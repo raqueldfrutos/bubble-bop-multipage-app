@@ -1,29 +1,65 @@
-<form action="/auth/signup" method="POST">
-  <div>
-    <label for="username">Username:</label>
-    <input required type="text" name="username" />
-  </div>
-  <div>
-    <label for="name">Name:</label>
-    <input required type="text" name="name" />
-  </div>
+<div class="blocks-container">
+    <div class="left-block">
 
-   <div>
-    <label for="lastName">Last name:</label>
-    <input required type="text" name="lastName" />
-  </div>
+      <div class="auth-form">
+        <div class="form-section">
+          <h1>Sign <span>Up!</span></h1>
+        </div>
 
-  <div>
-    <label for="email">Email:</label>
-    <input required type="email" name="email" />
-  </div>
-  <div>
-    <label for="password">Password:</label>
-    <input required type="password" name="password" />
-  </div>
-  <button type="submit">Sign up</button>
-</form>
-{{#if errorMessage}}
-  <p class="error-message">{{errorMessage}}</p>
-{{/if}}
-<p>¿Ya tienes cuenta? <a href="/auth/login">Login</a></p>
+
+          <form action="/auth/signup" method="POST">
+            <div class="form-section">
+              <label for="username">Username:</label>
+              <div>
+                 <input class="text-input auth-input" placeholder="Username" required type="text" name="username" />
+              </div>
+            </div>
+            <div class="form-section">
+              <label for="name">Name:</label>
+              <div>
+                <input class="text-input auth-input" placeholder="Name" required type="text" name="name" />
+              </div>
+            </div>
+            <div class="form-section">
+              <label for="lastName">Last name:</label>
+              <div>
+                <input class="text-input auth-input" placeholder="Last Name" required type="text" name="lastName" />
+              </div>
+            </div>
+
+            <div class="form-section">
+              <label for="email">Email:</label>
+              <div>
+              <input class="text-input auth-input" placeholder="Email" required type="email" name="email" />
+              </div>
+            </div>
+            <div class="form-section">
+              <label for="password">Password:</label>
+              <div>
+              <input class="text-input auth-input" placeholder="Password" required type="password" name="password" />
+              </div>
+            </div>
+
+          {{#if errorMessage}}
+            <p class="error-message">{{errorMessage}}</p>
+          {{/if}}
+            <div class="form-section"> 
+              <button class="big-button auth-button" type="submit">Sign up</button>
+            </div>
+          </form>
+      </div>
+
+    
+      <div class="footer-auth-form">
+          <p>¿Ya tienes cuenta? <a href="/auth/login">Login</a></p>
+
+      </div>
+    </div>
+
+    <div class="right-block">
+
+    <img class="auths-images" src="/images/ilustration-auth-2.png" alt="" />
+    <img class="bubble-image" src="/images/ilustration-bubble.png" alt="" />
+
+    </div>
+</div>
