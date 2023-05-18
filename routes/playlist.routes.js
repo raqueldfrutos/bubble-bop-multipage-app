@@ -21,7 +21,7 @@ router.post("/create", isLoggedIn, uploader.single("playlistImage"), (req, res, 
       return Promise.all([updateUser, addSongToPlaylist]);
     })
     .then(() => {
-      if (data.search == "") {
+      if (!data.search) {
         res.redirect("/profile");
       } else {
         res.redirect(`/search/artists?search=${data.search}`);
