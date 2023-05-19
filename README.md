@@ -2,10 +2,10 @@
 <h3>Authors</h3>
 <p>Raquel de Frutos Álvarez</p>
 <p>Daniel Salas Rodríguez</p>
-<h2>How it looks</h2>
-![Image text](https://github.com/raqueldfrutos/project2-music-platform/blob/master/Images/inicio.png)
-![Image text](https://github.com/raqueldfrutos/project2-music-platform/blob/master/Images/login.png)
-![Image text](https://github.com/raqueldfrutos/project2-music-platform/blob/master/Images/singup.png)
+## How it looks
+![Screen_view_1](https://github.com/raqueldfrutos/project2-music-platform/blob/master/Images/inicio.png)
+![Screen_view_2](https://github.com/raqueldfrutos/project2-music-platform/blob/master/Images/login.png)
+![Screen_view_3](https://github.com/raqueldfrutos/project2-music-platform/blob/master/Images/singup.png)
 <h2>Descripcion</h2>
 <p>Online page designed to search for artists, albums
  or songs to be able to add them to your playlist</p>
