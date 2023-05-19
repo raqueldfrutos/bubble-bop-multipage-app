@@ -2,9 +2,9 @@
 
   <section>
 
-    <div id="user-info">
+    <div id="info">
 
-      <div class="user-info-left">
+      <div class="info-left">
         <div class="profile-img default-size circle-img">
         <div id="watermark"> </div>
           <img src="{{imageProfile}}" alt="" />
@@ -12,7 +12,7 @@
         <a class="small-button" href="/profile/edit">Edit profile</a>
       </div>
 
-      <div class="user-info-right">
+      <div class="info-right">
 
         <h1>Hello <span>{{name}}!</span></h1>
         <p>@{{username}}</p>
@@ -27,7 +27,7 @@
 
   <section>
     <div class="titles">
-      <h2>{{name}}'s <span>favorite artists: </span></h2>
+      <h2> <img class="icon"src="/images/fav-icon.png" alt="Fav Icon"> {{name}}'s <span>favorite artists: </span></h2>
     </div>
 
     <div class="profile-cards">
@@ -52,7 +52,7 @@
 
 <section>
   <div class="titles">
-    <h2>{{name}}'s <span> playlists: </span></h2>
+    <h2><img class="icon" src="/images/union-icon.png" alt="Fav Icon">{{name}}'s <span> playlists: </span></h2>
   </div>
 
  
@@ -69,12 +69,10 @@
 
             
             <div>
-              {{!-- <label for="name">Title: </label> --}}
               <input class="title-input input-style" placeholder="Playlist title" required id="playlist-title" type="text" name="name" />
             </div>
 
             <div>
-              {{!-- <label for="description">Description</label> --}}
               <textarea class=" textarea-input input-style " type="description" name="description" placeholder="Add an optional description"></textarea>
             </div>
 
@@ -98,6 +96,7 @@
   
   <div class="profile-cards">
     {{#each playlists}}
+      <a href="/playlist/{{_id}}">
       <div class="playlist-card">
           <div class="playlist-card-img">
             <img src="{{playlistImage}}" alt="artist image" />
@@ -107,12 +106,13 @@
             <p class="playlist-description">{{description}}</p>
             <a href="/playlist/{{_id}}"><img src="/images/play-button.png" alt="Play Playlist Icon"></a>
           </div>
-      </div>
+      </div></a>
 
     {{/each}}
   </div>
 
  <button type="button"  class="small-button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  <img class="icon" src="/images/union-icon.png" alt="Fav Icon">
     Create a new playlist
   </button>
 

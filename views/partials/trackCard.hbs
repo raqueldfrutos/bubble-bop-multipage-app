@@ -1,6 +1,6 @@
 <tr>
-  <td>
-    <p>{{track.name}}</p>
+  <td class="track-title">
+    <p><span>{{track.name}}: </span></p>
   </td>
   <td>
     <audio controls src="{{track.preview_url}}"></audio>
@@ -8,12 +8,12 @@
 
   <td>
     <div class="btn-group">
-      <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-        Add to playlist
+      <button type="button" class="transparent-button" data-bs-toggle="dropdown" aria-expanded="false">
+        <img src="/images/add-track-icon.png" class="icon" alt="">
       </button>
       <ul class="dropdown-menu">
 
-        <li><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <li><button type="button" class="transparent-button" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Create playlist
           </button></li>
 
@@ -42,7 +42,7 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">New playlist</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">New <span>playlist</span></h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <form action="/playlist/create" method="POST" enctype="multipart/form-data">
@@ -60,25 +60,24 @@
             <input hidden type="text" name="trackUrl" value="{{track.preview_url}}"/>
           </div>
           
-          <div>
-            <label for="playlistImage">Playlist Image</label>
-            <input type="file" id="playlistImage" name="playlistImage" />
-          </div>
-          <div>
-            <label for="name">Title: </label>
-            <input required id="playlist-title" type="text" name="name" />
-          </div>
+           <div>
+              <input class="title-input input-style" placeholder="Playlist title" required id="playlist-title" type="text" name="name" />
+            </div>
 
-          <div>
-            <label for="description">Description</label>
-            <textarea type="description" name="description" placeholder="Add an optional description"></textarea>
-          </div>
+            <div>
+              <textarea class=" textarea-input input-style " type="description" name="description" placeholder="Add an optional description"></textarea>
+            </div>
 
-        </div>
-        <div class="modal-footer">
-          <button disabled type="submit" id="modal-button" class="btn btn-primary" data-bs-dismiss="modal">Create
-            playlist</button>
-        </div>
+            <div>
+              <label for="playlistImage">Playlist Image</label>
+              <input type="file" id="playlistImage" name="playlistImage" />
+            </div>
+
+          </div>
+          <div class="modal-footer">
+            <button class="small-button" disabled type="submit" id="modal-button" style="background: #8DCFFF;"data-bs-dismiss="modal">Create
+              playlist</button>
+          </div>
 
       </form>
     </div>

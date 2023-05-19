@@ -1,18 +1,20 @@
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Listen</th>
-    </tr>
-  </thead>
-  <tbody>
-    {{#each tracksList}}
-      {{> trackCard track=this playlists=../playlists albumId=../albumId}}
-    {{/each}}
-  </tbody>
-</table>
+<div id="main-container">
 
+  <div class="titles">
+    <h2> <img class="icon" src="/images/union-icon.png" alt="">
+       Albums's <span>tracks: </span></h2>
 
+  </div>
+
+  <table>
+    <tbody>
+      {{#each tracksList}}
+        {{> trackCard track=this playlists=../playlists albumId=../albumId}}
+      {{/each}}
+    </tbody>
+  </table>
+
+</div>
 
 <script
   src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"

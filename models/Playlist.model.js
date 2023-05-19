@@ -9,7 +9,7 @@ const playlistSchema = new Schema(
     playlistImage: {
       type: String,
       default:
-        "https://yt3.googleusercontent.com/ytc/AGIKgqPmFbh4WiZlfw9spG8Dtoy8zY616IV9tAB7A9oGyg=s900-c-k-c0x00ffffff-no-rj"
+        "/images/default-playlist-image.png"
     },
     description: String,
     tracks: [Object]

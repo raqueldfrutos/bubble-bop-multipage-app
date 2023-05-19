@@ -1,6 +1,6 @@
 <tr>
-  <td>
-    <p>{{track.name}}</p>
+  <td class="track-title">
+    <p><span>{{track.name}}: </span></p>
   </td>
   <td>
     <audio controls src="{{track.preview_url}}"></audio>
@@ -8,7 +8,7 @@
   <td>
     <form action="/playlist/{{playlistId}}/delete-track" method="POST">
       <input hidden type="text" name="track" value="{{track.name}}" />
-      <button type="submit">Delete</button>
+      <button class="transparent-button" type="submit"><img class="icon" src="/images/trash-icon.png" alt=""></button>
     </form>
   </td>
 </tr>

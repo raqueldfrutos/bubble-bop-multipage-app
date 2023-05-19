@@ -1,40 +1,52 @@
-
-  <h1> ARTISTS RESULTS</h1>
+<div id="main-container">
+  
+  <div class="titles">
+  <h2> <img src="/images/search-icon.png" class="icon" alt="search icon"> Search <span>results: <span></h2>
+  </div>
 
   {{#each artistsResults}}
 
-    <div class="results-section">
+    <section>
 
-      <img src="{{images.1.url}}" alt="" />
+      <div id="info">
+        <div class="info-left">
+          <div class="profile-img default-size-big circle-img">
+            <div id="watermark"> </div>
+            <img src="{{images.1.url}}" alt="" />
+          </div>
+        </div>
 
-      <div class="artist-card-items">
-        <p class="artist-name"> {{name}}</p>
-        <a href="/search/albums/{{id}}">View Albums</a>
-        <form action="/search/artist/favorite" method="POST">
-          {{! el name tiene que ser igual que los campos del modelo que quiero }}
-          <input hidden type="text" name="name" value="{{name}}" />
-          <input hidden type="text" name="image" value="{{images.1.url}}" />
-          {{!-- utilizamos los dos puntos para salir del objeto artistsResults --}}
-          <input hidden type="text" name="search" value="{{../search}}" /> 
-          <button type="submit">Fav</button>
+        <div class="info-right">
+          <h1> <span> {{name}} <span> </h1>
+          <div class="align-items-horizontally">
+            <a class= "small-button" href="/search/albums/{{id}}">
+            <img class="icon"src="/images/album-icon.png" alt="Album Icon">
+            View Albums </a>
+            <form action="/search/artist/favorite" method="POST">
+            {{! el name tiene que ser igual que los campos del modelo que quiero }}
+            <input hidden type="text" name="name" value="{{name}}" />
+            <input hidden type="text" name="image" value="{{images.1.url}}" />
+            {{!-- utilizamos los dos puntos para salir del objeto artistsResults --}}
+            <input hidden type="text" name="search" value="{{../search}}" /> 
+            <button class= "small-button" type="submit">
+              <img class="icon"src="/images/fav-icon.png" alt="Fav Icon">
+              Favorite</button>
 
-        </form>
+            </form>
 
+          </div>
+          
+
+        </div>
       </div>
 
-    </div>
+    </section>
 
   {{/each}}
 
 <hr>
 
 <table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Listen</th>
-    </tr>
-  </thead>
   <tbody>
     {{#each tracksResults}}
       {{> trackCard track=this playlists=../playlists search=../search}}
@@ -47,7 +59,7 @@
 {{/if}}
 
 
-
+</div>
 
 <script
   src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
