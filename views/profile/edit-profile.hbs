@@ -1,27 +1,47 @@
-<h1>Edit profile</h1>
-<form action="/profile/edit" enctype="multipart/form-data" method="POST">
-  <div>
-    <label for="imageProfile">Profile picture</label>
-    <input type="file" id="imageProfile" name="imageProfile" />
-  </div>
-  <div>
-    <label for="username">Username:</label>
-    <input type="text" value="{{username}}" name="username" />
-  </div>
-  <div>
-    <label for="name">Name:</label>
-    <input type="text" value="{{name}}" name="name" />
+<div id="main-container">
+
+  <div class="edit-profile-container">
+
+
+  <h1>Edit <span>profile </span></h1>
+  <form action="/profile/edit" enctype="multipart/form-data" method="POST">
+    <div class="form-section">
+      <label for="username">Username:</label>
+      <div>
+        <input class="text-input auth-input" type="text" value="{{username}}" name="username" />
+      </div>
+    </div>
+    <div class="form-section">
+      <label for="name">Name:</label>
+      <div>
+        <input class="text-input auth-input" type="text" value="{{name}}" name="name" />
+      </div>
+    </div>
+
+    <div class="form-section">
+      <label for="lastName">Last name:</label>
+      <div>
+        <input class="text-input auth-input" type="text" value="{{lastName}}" name="lastName" />
+      </div>
+    </div>
+
+    <div class="form-section">
+      <label for="description">Bio:</label>
+      <div>
+        <textarea class="textarea-edit-profile" type="description" name="description" placeholder="Tell us about yourself">{{description}}</textarea>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <label for="imageProfile">Profile picture</label>
+      <div>
+        <input type="file" id="imageProfile" name="imageProfile" />
+      </div>
+    </div>
+
+    <button class="big-button" type="submit">Save</button>
+  </form>
+
   </div>
 
-  <div>
-    <label for="lastName">Last name:</label>
-    <input type="text" value="{{lastName}}" name="lastName" />
-  </div>
-
-  <div>
-    <label for="description">Bio:</label>
-    <textarea type="description" name="description" placeholder="Tell us about yourself">{{description}}</textarea>
-  </div>
-
-  <button type="submit">Save</button>
-</form>
+</div>

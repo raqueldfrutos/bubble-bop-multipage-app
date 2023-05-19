@@ -2,6 +2,7 @@ body {
   font-family: 'Lato', sans-serif;
   background: linear-gradient(112.7deg, #8DCFFF -0.69%, #FFB8E3 100%);
   color: white;
+  
 
 }
 
@@ -37,7 +38,7 @@ line-height: 19px;
 }
 
 span {
-  font-family: 'Fredoka', sans-serif;
+font-family: 'Fredoka', sans-serif;
 font-style: normal;
 font-weight: 600;
 }
@@ -56,7 +57,6 @@ font-weight: 600;
   border: 4px solid #496477;
 }
 
-
 section {
   margin-bottom: 28px;
 }
@@ -65,6 +65,7 @@ section {
   border-bottom: 1px solid white;
   margin-bottom: 24px;
 }
+
 
 /* BUTTONS */
 
@@ -79,18 +80,15 @@ background: #496477;
 border-radius: 16px;
 text-decoration: none;
 color: white;
-
 }
 
 .small-button {
 padding: 4px 24px;
-
 height: 32px;
 background: #496477;
 border-radius: 16px;
 text-decoration: none;
 color: white;
-
 }
 
 .big-button:hover, .small-button:hover {
@@ -103,15 +101,12 @@ button {
 }
 
 .auth-button {
-
 width: 386px;
 height: 35px;
-
 }
 
 .btn-primary{
   border: none;
-
 }
 
 
@@ -137,13 +132,21 @@ order: 0;
 flex-grow: 0;
 text-align: right;
 padding: 8px;
+}
+
+.textarea-edit-profile {
+width: 398px;
+height: 100px;
+background: #FFFFFF;
+border-radius: 10px;
+border-color: transparent;
+padding: 8px;
 
 }
 
 .bar-box-bg {
   background: linear-gradient(112.7deg, #8DCFFF -0.69%, #FFB8E3 100%), linear-gradient(0deg, #FFFFFF, #FFFFFF);
   border-radius: 10px;
-
 }
 
 .text-input::placeholder {
@@ -184,7 +187,6 @@ margin-right: 320px;
 .auths-images {
 width: 80%;
 filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-
 }
 
 .bubble-image {
@@ -285,14 +287,10 @@ color: white;
   top: 10%;
   bottom: 32.48%;
   z-index: 10;
-
 }
 
 .each-artist {
   text-align: center;
-  margin-left: 24px;
-
-
 }
 
 .artist-footer {
@@ -307,32 +305,79 @@ padding:16px;
 width: 230px;
 height: 300px;
 background: #496477;
-border-radius: 14.0105px;
-
+border-radius: 15px;
+margin-top: -24px;
+margin-bottom: 24px;
 }
-
 
 .playlist-card img {
 object-fit: cover;
 width: 190px;
 height: 170px;
 border-radius: 10.6587px;
-
-}
-
-.playlist-card-img {
-  height: 50%;
-  gap: 20px;
 }
 
 .playlist-card-footer {
-  
+  text-align: center;
+  margin-top: 14px;
 }
 
+.playlist-card-footer img {
+  width: 25px;
+  height: 25px;
+}
 
+.playlist-description {
+  font-size: 12px;
+  line-height: 0px;
+}
 
+/* CREATE PLAYLIST MODAL */
 
+.modal {
+  background: rgba(237, 128, 255, 0.5);
+}
 
+.modal-content {
+  box-shadow: 0px 3.21484px 3.21484px rgba(0, 0, 0, 0.25);
+border-radius: 16px;
+background: #496477;
+  text-align: center;
+}
+
+.input-style {
+
+background: #A5B5C0;
+border-radius: 8px;
+border: none;
+margin-bottom: 15px;
+
+}
+
+.input-style::placeholder {
+  color: white;
+}
+
+.title-input {
+padding: 10px;
+width: 257px;
+height: 25px;
+
+}
+
+.textarea-input {
+ padding: 10px;
+gap: 10px;
+width: 257px;
+height: 118.04px;
+
+}
+
+/* EDIT PROFILE */
+
+.edit-profile-container {
+  text-align: center;
+}
 
 
 
