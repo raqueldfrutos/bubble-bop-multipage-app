@@ -40,6 +40,8 @@ Online page designed to search for artists, albums or songs to be able to add th
 
 ### app.js
 
+```
+
 require("dotenv").config();
 require("./db");
 const express = require("express");
@@ -64,7 +66,11 @@ app.use("/trending", trendingRoutes);
 require("./error-handling")(app);
 module.exports = app;
 
+```
+
 ### server.js
+
+```
 
 const app = require("./app");
 const PORT = process.env.PORT || 3000;
@@ -72,16 +78,24 @@ app.listen(PORT, () => {
   console.log(`Server listening on http://localhost:${PORT}`);
 });
 
+```
+
 ### capitalize.js
+
+```
 
 function capitalize (string) {
   return string[0].toUpperCase() + string.slice(1).toLowerCase();
 }
 module.exports = capitalize;
 
+```
+
 ### Routes
 
 #### auth.routes.js
+
+```
 
 const express = require("express");
 const router = express.Router();
@@ -180,7 +194,11 @@ router.get('/logout', (req, res, next) => {
   
 module.exports = router;
 
+```
+
 #### index.routes.js
+
+```
 
 const express = require("express");
 const router = express.Router();
@@ -196,7 +214,11 @@ router.get("/discover", isLoggedIn, (req, res, next) => {
 
 module.exports = router;
 
+```
+
 #### playlist.routes.js
+
+```
 
 const express = require("express");
 const router = express.Router();
@@ -258,7 +280,11 @@ router.post("/:id/delete", isLoggedIn, async (req, res, next) => {
 
 module.exports = router;
 
+```
+
 #### profile.routes 
+
+```
 
 const express = require("express");
 const router = express.Router();
@@ -297,7 +323,11 @@ router.post("/edit", isLoggedIn, uploader.single("imageProfile"), (req, res, nex
 
 module.exports = router;
 
+```
+
 #### search.routes.js
+
+```
 
 const express = require("express");
 const router = express.Router();
@@ -456,7 +486,11 @@ router.get("/tracks/:albumId", isLoggedIn, (req, res) => {
 
 module.exports = router;
 
+```
+
 #### trending.routes
+
+```
 
 const express = require("express");
 const router = express.Router();
@@ -496,9 +530,13 @@ spotifyApi
 
 module.exports = router;
 
+```
+
 ### Middlewares
 
 #### route-guard.js
+
+```
 
 const isLoggedIn = (req, res, next) => {
     if(req.session.currentUser){
@@ -519,9 +557,13 @@ const isLoggedIn = (req, res, next) => {
   
   module.exports = { isLoggedIn, isLoggedOut };
 
+  ```
+
 ### Config
 
 #### cloudinary.config.js
+
+```
 
 const cloudinary = require("cloudinary").v2;
 const { CloudinaryStorage } = require("multer-storage-cloudinary");
@@ -543,7 +585,11 @@ const storage = new CloudinaryStorage({
 
 module.exports = multer({ storage });
 
+```
+
 #### index.js
+
+```
 
 const logger = require("morgan");
 const cookieParser = require("cookie-parser");
@@ -562,7 +608,11 @@ module.exports = (app) => {
   app.use(favicon(path.join(__dirname, "..", "public", "images", "favicon.ico")));
 };
 
+```
+
 #### session.config.js
+
+```
 
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
@@ -586,6 +636,8 @@ module.exports = app => {
     })
   );
 };
+
+```
 
 ## Links
 
