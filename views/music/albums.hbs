@@ -1,11 +1,24 @@
-<div class='list-page'>
-  {{#each albumsList}}
-    <div class='resultd-section'>
-      <img src='{{images.1.url}}' alt='{{name}}' />
-      <div class='card-info'>
-        <p>{{name}}</p>
-        <a href='/search/tracks/{{id}}'>View Tracks</a>
-      </div>
-    </div>
-  {{/each}}
+<div id="main-container">
+
+   <div class="titles">
+  <h2> <img src="/images/albums-icon.png" class="icon" alt="search icon"> Artist <span>albums: <span></h2>
+  </div>
+
+
+  <div class="profile-cards album-card" >
+      {{#each albumsList}}
+      <a href="/search/tracks/{{id}}">
+        <div class="playlist-card">
+          <div class="playlist-card-img">
+            <img src="{{images.1.url}}" alt="{{name}}" />
+          </div>
+          <div class="playlist-card-footer">
+            <p>{{name}}</p>
+            <a href="/search/tracks/{{id}}" style="text-decoration: underline">View Tracks</a>
+          </div>
+        </div></a>
+      {{/each}}
+  </div>
+
+
 </div>

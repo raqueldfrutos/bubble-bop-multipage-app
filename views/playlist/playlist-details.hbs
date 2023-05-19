@@ -1,45 +1,70 @@
+
+<div id="main-container">
+
 {{#with playlistDetails}}
 
-  <div class="playlist-detail-header">
+<section class="playlist-banner">
 
-    <div class="playlist-detail-image">
-      <img src="{{playlistImage}}" alt="Playlist Image" />
+  <div id="info">
+
+    <div class="info-left">
+
+      <div class="playlist-detail-image">
+        <img src="{{playlistImage}}" alt="Playlist Image" />
+      </div>
+
     </div>
 
-    <div class="playlist-detail-info">
-      <h2>{{name}}</h2>
-      <p>{{description}}</p>
+    <div class="info-right">
 
-      <p>Created by: {{...user.name}} {{...user.lastName}}</p>
-       <form action="/playlist/{{_id}}/delete" method="POST"><button type="submit" class="btn btn-primary" data-toggle="button">Delete</button></form>
+      <div class="playlist-detail-info">
+        <h1>{{name}}</h1>
+        <p>{{description}}</p>
+
+        <p style="color: #496477">Created by: {{...user.name}} {{...user.lastName}}</p>
+        <form action="/playlist/{{_id}}/delete" method="POST">
+
+        <div class="align-items-horizontally">
+          <button class="small-button" type="submit" class="btn btn-primary" data-toggle="button">Delete Playlist</button></form>
+
+          <a class="small-button" href="/profile">Go back</a>
+
+        </div>
+
+      </div>
+
     </div>
+
+    </div>
+
+
+
+
+</section>
+
+<section>
+
+  <div class="titles">
+    <h2> <img class="icon" src="/images/union-icon.png" alt="">
+       Playlist's <span>tracks: </span></h2>
 
   </div>
 
-  <br>
 
-<p>Tracks:</p>
+  <table>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Listen</th>
-    </tr>
-  </thead>
-  <tbody>
-{{#each tracks}}
-{{> trackCardDetail track=this playlistId=../_id}}
-{{/each}}
+    <tbody>
+  {{#each tracks}}
+  {{> trackCardDetail track=this playlistId=../_id}}
+  {{/each}}
 
-  </tbody>
-</table>
+    </tbody>
+  </table>
 
-
-
-
-
+  </section>
 
 {{/with}}
 
-<h1></h1>
+
+
+  </div>

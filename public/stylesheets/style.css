@@ -49,6 +49,14 @@ font-weight: 600;
   height: 180px;
 }
 
+.default-size-big img {
+  object-fit: cover;
+  width: 280px;
+  height: 280px;
+}
+
+
+
 .circle-img img {
   border-radius: 50%;
 }
@@ -66,8 +74,34 @@ section {
   margin-bottom: 24px;
 }
 
+.align-items-horizontally {
+  display: flex ;
+  gap: 12px
+}
+
+
+.icon {
+ 
+  width: 24px;
+  height: 24px;
+
+}
+
+.dropdown-menu {
+  background: #496477;
+  
+}
+
+.dropdown-menu li {
+  color: white;
+}
+
 
 /* BUTTONS */
+
+.transparent-button {
+  background: none;
+}
 
 .big-button  {
 padding: 8px 32px;
@@ -248,24 +282,24 @@ color: white;
 
 /* PROFILE */
 
-#user-info {
+#info {
   display: flex;
 }
 
-.user-info-left {
+.info-left {
   text-align: center;
   margin-right: 24px;
 }
 
-.user-info-right {
+.info-right {
   margin: auto 0;
 }
 
 .profile-cards {
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
 }
-
 
 .profile-img {
   margin-bottom: 8px;
@@ -306,20 +340,32 @@ width: 230px;
 height: 300px;
 background: #496477;
 border-radius: 15px;
-margin-top: -24px;
 margin-bottom: 24px;
+
 }
+
+.playlist-card:hover {
+  background: #5B6E79;
+box-shadow: 0px 3.21484px 3.21484px rgba(0, 0, 0, 0.25);
+}
+
 
 .playlist-card img {
 object-fit: cover;
 width: 190px;
 height: 170px;
-border-radius: 10.6587px;
+border-radius: 10px;
 }
 
 .playlist-card-footer {
   text-align: center;
   margin-top: 14px;
+}
+
+.playlist-card-footer a {
+  text-decoration: none;
+  color: white;
+
 }
 
 .playlist-card-footer img {
@@ -380,14 +426,75 @@ height: 118.04px;
 }
 
 
+/* PLAYLIST DETAILS  */
 
+.playlist-detail-image img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 4px solid #496477;
 
-
-.playlist-detail-header {
-  display: flex;
+}
+.playlist-banner {
+  padding-bottom: 20px;
 }
 
 .playlist-detail-image img {
   width: 200px;
 }
 
+/* AUDIO TRACKS */
+
+.track-title {
+  padding-right: 20px;
+
+
+}
+
+td {
+  width: 30%;
+}
+
+audio {
+  width: 400px;
+
+}
+
+audio::-webkit-media-controls-panel {
+  background-color: #5B6E79;
+}
+
+audio::-webkit-media-controls-play-button {
+  background-color: white;
+  border-radius: 50%;
+  padding-right: 20px;
+}
+
+audio::-webkit-media-controls-play-button:hover {
+  background-color: rgba(177,212,224, .7);
+}
+
+audio::-webkit-media-controls-current-time-display {
+  color: #fff;
+}
+audio::-webkit-media-controls-time-remaining-display {
+  color: #fff;
+}
+
+/* SEARCH RESULTS */
+
+#tracks-container {
+  display: flex;
+  flex-direction: column;
+  border: solid 1px red;
+}
+
+#track-box{
+  display: flex;
+}
+
+.album-card{
+  margin-top: 24px;
+  text-align: center;
+}
