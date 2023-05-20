@@ -649,6 +649,10 @@ module.exports = app => {
 
 [Link Repo](https://github.com/raqueldfrutos/project2-music-platform)
 
+### Figma
+
+[Link presentation](https://www.figma.com/file/J1DjwDoyRURp39Xg7nQU4d/Proyecto-2---Web?type=design&node-id=80-372&t=mcXUPk7tJeA5pGyY-0)
+
 
 
 
