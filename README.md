@@ -1,37 +1,41 @@
-# Bops Blubble!
+# BubbleBop!
 
-[BopsBlubble!](https://old-sound-6865.fly.dev/)
+[Link to BubbleBop!](https://old-sound-6865.fly.dev/)
 
 ### Authors
 
 Raquel de Frutos Álvarez
-
 Daniel Salas Rodríguez
+
+### UX/UI Team
+Sara M. Alarcón Miguez
+Nicolás Regueiro
 
 ## How it looks
 
 ![Screen_view_1](https://github.com/raqueldfrutos/project2-music-platform/blob/master/Images/inicio.png)
 ![Screen_view_2](https://github.com/raqueldfrutos/project2-music-platform/blob/master/Images/login.png)
-![Screen_view_3](https://github.com/raqueldfrutos/project2-music-platform/blob/master/Images/singup.png)
 
-## Descripcion
+## Description
+
+BubbleBop is a space to find and share your favorite artists, find out more about their upcoming concerts and create playlists with your favorite music.
+
+## MVP
 
 Online page designed to search for artists, albums or songs to be able to add them to your playlist.
 
 ## Built with
 
  - HTML / CSS / JavaScript / Bootstrap
- - npm / MongoDB / NodeJS / ExpressJS
- - Cloudinary/SpotifyApi
+ - Handlebars / Axios / MongoDB / NodeJS / ExpressJS
+ - APIs: Cloudinary / SpotifyApi
 
 ## User Stories
 
- - <b>404</b> - As users, we want to see a nice 404 error page when I go to a page that doesn’t exist.
- - <b>500</b> - As users, we want to see a nice 500 error page when the team behind the app brokes something and it's not our fault.
- - <b>Homepage</b> - As users, we want to be able to access the homepage and select by category service and search by specific service.
+ - <b>Homepage</b> - As users, we need to log-in or sign up if we don't have an account.
  - <b>Login</b> - As users, we want to be able to log in and manage our profile and services.
  - <b>Signup</b> - As users, we want to be able to create an account and sell amazing services. 
- - <b>Profile page</b> - As users, we want to be able to edit our profile and be able to listen to our playlists.
+ - <b>Profile page</b> - As users, we want to be able to edit our profile, see our saved favorite artist, create and listen to our playlists.
  - <b>secure password</b> - As users, we want our users to register with a strong password for added security.
  - <b>search page</b> - As users, we want our users to have an easy way to search for their favorite artists and songs.
  - <b>Trending top</b> - As users, we like that you can access the most popular songs of the moment.
