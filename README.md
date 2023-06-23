@@ -5,10 +5,12 @@
 ### Authors
 
 Raquel de Frutos Álvarez
+
 Daniel Salas Rodríguez
 
 ### UX/UI Team
 Sara M. Alarcón Miguez
+
 Nicolás Regueiro
 
 ## How it looks
