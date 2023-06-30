@@ -34,13 +34,13 @@ Online page designed to search for artists, albums or songs to be able to add th
 
 ## User Stories
 
- - <b>Homepage</b> - As users, we need to log-in or sign up if we don't have an account.
+ - <b>Index page</b> - As users, we need to log-in or sign up if we don't have an account.
  - <b>Login</b> - As users, we want to be able to log in and manage our profile and services.
  - <b>Signup</b> - As users, we want to be able to create an account and sell amazing services. 
  - <b>Profile page</b> - As users, we want to be able to edit our profile, see our saved favorite artist, create and listen to our playlists.
- - <b>secure password</b> - As users, we want our users to register with a strong password for added security.
- - <b>search page</b> - As users, we want our users to have an easy way to search for their favorite artists and songs.
- - <b>Trending top</b> - As users, we like that you can access the most popular songs of the moment.
+ - <b>Artists results</b> - Users are able to search for their favorite artists and add them as favorites.
+ - <b>Albums results</b> - Users can discover every artist albums and add its music to a playlist.
+ - <b>Trending top</b> - User can access to the most popular songs of the moment.
 
 ## Data structure
 
