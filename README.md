@@ -1,6 +1,6 @@
 # BubbleBop!
 
-[Link to BubbleBop!](https://old-sound-6865.fly.dev/)
+[Link to BubbleBop!]((https://bubblebop.fly.dev/)
 
 ### Authors
 
